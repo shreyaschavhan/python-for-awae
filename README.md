@@ -285,4 +285,26 @@ Operator | Description
 `%=` | Modulus assign
 `**=` | Power assign
 
+- Dictionary
 
+```
+>>> stuff = {'name': 'Zed', 'age': 39, 'height': 6 * 12 + 2}
+>>> print(stuff['name'])
+Zed
+>>> print(stuff['age'])
+39
+```
+
+- Class/Object in python
+
+```
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("John", 36)
+
+print(p1.name)
+print(p1.age)
+```
