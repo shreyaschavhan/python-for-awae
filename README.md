@@ -102,4 +102,187 @@ Escape | What it does
 age = input("How old are you? ")
 ```
 
+- Taking arguments as input on terminal
+
+```
+from sys import argv
+
+script, first, second, third = argv
+
+print("The script is called: ", script)
+print("First Variable is: ", first)
+print("Second Variable is: ", second)
+print("Third Variable is: ", third)
+```
+```
+$ python arguments.py first 2nd 3rd
+The script is called: arguments.py
+First variable is: first
+Second variable is: 2nd
+Third variable is: 3rd
+```
+
+- Read file
+
+```
+from sys import argv
+
+script, filename = argv
+
+txt = open(filename)
+print(txt.read())
+```
+
+- Reading and writing files
+```
+- `close` : Closes the file. Like `File -> Save`... in your editor
+- `read`: Reads the contents of the file. You can assign the result to a variable
+- `readline`: Reads just one line of a text file.
+- `truncate`: Empties the file. Watch out if you care about the file.
+- `write('stuff')`: Writes "stuff" to the file.
+- `seek(0)`: Move the read/write location to the beginning of the file.
+```
+
+```
+from sys import argv
+
+script, filename = argv
+
+print("Opening the file...")
+target = open(filename, 'w')
+
+print("Truncating the file. Goodbye!")
+target.truncate()
+
+print("Let's write a line.")
+target.write("Hey! My name is shreyas")
+
+target.close()
+```
+
+- copying one file to another
+
+```
+from sys import argv
+
+script, from_file, to_file = argv
+file1 = open(from_file)
+data = file1.read()
+
+file2 = open(to_file, 'w')
+file2.write(data)
+
+file2.close()
+file1.close()
+```
+
+- Functions
+
+```
+# this one is like your scripts with argv
+def print_two(*args):
+	arg1, arg2 = args
+	print(f"arg1: {arg1}, arg2: {arg2}")
+
+# ok, that *args is actually pointless, we can just do this
+def print_two_again(arg1, arg2):
+	print(f"arg1: {arg1}, arg2: {arg2}")
+
+print_two("Shreyas", "Chavhan")
+print_two_again("Shreyas", "Chavhan")
+
+```
+
+- if, elif, else
+
+```
+if test expression:
+    Body of if
+elif test expression:
+    Body of elif
+else: 
+    Body of else
+```
+
+- list
+
+```
+a = [1, 2, 3, 4, 5]
+# this is a list
+
+print(a[1]) # prints element at index 1
+```
+
+- for loop
+
+```
+a = [1, 2, 3, 4, 5]
+for i in a:
+  print(i)
+```
+
+- while loop
+
+```
+i = 0;
+while i < 6:
+  print(i)
+  i += 1
+```
+
+- Old style String Format
+
+Escape | Description
+--- | ---
+`%d` | Decimal integers (not floating point)
+`%i` | Same as %d
+`%o` | Octal number
+`%u` | Unsigned decimal
+`%x` | Hexadecimal lowercase
+`%X` | Hexadecimal uppercase
+`%e` | Exponential notation, lowercase "e"
+`%E` | Exponential notation, uppercase "E"
+`%f` | floating point real number
+`%F` | Same as %f
+`%g` | Either %f or %e, whichever is shorter
+`%G` | Same as %g but uppercase
+`%c` | character format
+`%r` | Repr format (debugging format)
+`%s` | String format
+`%%` | A percent sign
+
+- - Operators
+
+Operator | Description 
+---|---
+`+` | Addition
+`-` | Subtraction
+`*` | Multiplication
+`**` | Power of
+`/` | Division
+`//` | Floor Division
+`%` | String interpolate or modulus
+`<` | Less than
+`>` | Greater than
+`<=` | Less than equal
+`>=` | Greater than equal
+`==` | Equal
+`!=` | Not equal
+`( )` | Parentheses
+`[ ]` | List brackets
+`{ }` | Dict curly braces
+`@` | At (decorators)
+`,` | Comma
+`:` | Colon
+`.` | Dot
+`=` | Assign Equal
+`;` | Semi-colon
+`+=` | Add and assign
+`-=` | Subtract and assign
+`*=` | Multiply and assign
+`/=` | Divide and assign
+`//=` | Floor divide and assign
+`%=` | Modulus assign
+`**=` | Power assign
+
 
