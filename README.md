@@ -37,7 +37,10 @@ It's good if you find it helpful, if not I don't care. Thanks!
 	- Dictionary
 	- Class/Object in python
 - [Violent Python](#𝐕𝐢𝐨𝐥𝐞𝐧𝐭-𝐏𝐲𝐭𝐡𝐨𝐧)
-	- [Installing a library](#-𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠-𝐚-𝐥𝐢𝐛𝐫𝐚𝐫𝐲) 
+	- [Installing a library](#-Installing-a-Library)
+	- [Banner Grabbing Script](#-Banner-Grabbing-Script) 
+
+- [Modules](#𝐌𝐨𝐝𝐮𝐥𝐞𝐬)
 
 ## 𝐁𝐚𝐬𝐢𝐜𝐬
 
@@ -330,7 +333,7 @@ print(p1.age)
 
 ## 𝐕𝐢𝐨𝐥𝐞𝐧𝐭 𝐏𝐲𝐭𝐡𝐨𝐧
 
-##### • 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠 𝐚 𝐥𝐢𝐛𝐫𝐚𝐫𝐲
+#### • Installing a Library
 
 ```
 $ pip install python-nmap
@@ -345,4 +348,27 @@ Successfully installed python-nmap-0.7.1
 
 ```
 
+#### • Banner Grabbing Script
+
+```
+import socket
+
+socket.setdefaulttimeout(2)
+
+s = socket.socket()
+s.connect(("8.8.8.8", 80))
+
+ans = s.recv(1024)
+print(ans)
+
+```
+
+- `socket` module provides a library for making network connection
+- then we create an instance of variable `s` from class `socket`
+- we use the `connect()` method to make a network connection to the IP address and port.
+- we use `recv(1024)` method to read the next 1024 bytes on the socket
+
 ## 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
+
+- `socket` : The socket module provides a library for making network connections using Python.
+- `sys` : The built-in sys module provides access to objects used or maintained by the Python interpreter. This includes flags, version, max sizes of integers, available modules, path hooks, location of standard error/in/out, and command line arguments called by the interpreter.
