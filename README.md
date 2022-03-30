@@ -18,7 +18,26 @@ It's good if you find it helpful, if not I don't care. Thanks!
 
 ## ‣ 𝐓𝐚𝐛𝐥𝐞 𝐨𝐟 𝐂𝐨𝐧𝐭𝐞𝐧𝐭𝐬
 
-`blah blah blah! hehe, wait for it bro!`
+- [Basics](#𝐁𝐚𝐬𝐢𝐜𝐬)
+	- Printing anything
+	- Adding Comments
+	- Numbers and Maths
+	- Variables
+	- Escape
+	- Taking Input
+	- Read File
+	- Reading and writing files
+	- Copying one file to another
+	- Functions
+	- If-elif-else
+	- For loop
+	- while loop
+	- Old Style String Format
+	- Operators
+	- Dictionary
+	- Class/Object in python
+- [Violent Python](#𝐕𝐢𝐨𝐥𝐞𝐧𝐭-𝐏𝐲𝐭𝐡𝐨𝐧)
+	- [Installing a library](#-𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠-𝐚-𝐥𝐢𝐛𝐫𝐚𝐫𝐲) 
 
 ## 𝐁𝐚𝐬𝐢𝐜𝐬
 
@@ -251,7 +270,7 @@ Escape | Description
 `%s` | String format
 `%%` | A percent sign
 
-- - Operators
+- Operators
 
 Operator | Description 
 ---|---
@@ -308,3 +327,22 @@ p1 = Person("John", 36)
 print(p1.name)
 print(p1.age)
 ```
+
+## 𝐕𝐢𝐨𝐥𝐞𝐧𝐭 𝐏𝐲𝐭𝐡𝐨𝐧
+
+##### • 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠 𝐚 𝐥𝐢𝐛𝐫𝐚𝐫𝐲
+
+```
+$ pip install python-nmap
+Collecting python-nmap
+  Downloading python-nmap-0.7.1.tar.gz (44 kB)
+     ---------------------------------------- 44.4/44.4 KB 1.1 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Using legacy 'setup.py install' for python-nmap, since package 'wheel' is not installed.
+Installing collected packages: python-nmap
+  Running setup.py install for python-nmap ... done
+Successfully installed python-nmap-0.7.1
+
+```
+
+## 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
