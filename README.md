@@ -372,3 +372,4 @@ print(ans)
 
 - `socket` : The socket module provides a library for making network connections using Python.
 - `sys` : The built-in sys module provides access to objects used or maintained by the Python interpreter. This includes flags, version, max sizes of integers, available modules, path hooks, location of standard error/in/out, and command line arguments called by the interpreter.
+- `os` : This module allows the program to independently interact with the OS environment, file-system, user database, and permissions.
