@@ -41,6 +41,7 @@ It's good if you find it helpful, if not I don't care. Thanks!
 	- [Banner Grabbing Script](#-Banner-Grabbing-Script) 
 
 - [Modules](#𝐌𝐨𝐝𝐮𝐥𝐞𝐬)
+	- [socket](#-socket-module)
 
 ## 𝐁𝐚𝐬𝐢𝐜𝐬
 
@@ -370,6 +371,16 @@ print(ans)
 
 ## 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
 
+
+#### • socket module
 - `socket` : The socket module provides a library for making network connections using Python.
+
+> - `socket.gethostbyname(hostname)` - This function takes a hostname such as www.syngress.com and returns an IPv4 address format such as 69.163.177.2
+> - `socket.gethostbyaddr(ip address)` - This funciton returns a triple (hostname, aliaslist, ipaddrlist) i.e. a hostname, alternative list of host names, and a list of IPv4/v6 addresses for the same interface on the host.
+> - `socket.socket([family[, type[, proto]]])` - This function creates an instance of a new socket given the family. Options for the socket family are AF_INET< AF_INET6, or AF_UNIX. Additionally, the socket can be specified as SOCK_STREAM for a TCP socket or SOCK_DGRAM for a UDF socket. Finally, the protocol number is usually zero and is omitted in mmost cases.
+> - `socket.create_connection(address[, timeout[, source_address]])` - This function takes a 2-tuple (host, port) and returns an instandce of a network socket. Additionally, it has the opiton of taking a timeout and source address. 
+
+---
+
 - `sys` : The built-in sys module provides access to objects used or maintained by the Python interpreter. This includes flags, version, max sizes of integers, available modules, path hooks, location of standard error/in/out, and command line arguments called by the interpreter.
 - `os` : This module allows the program to independently interact with the OS environment, file-system, user database, and permissions.
