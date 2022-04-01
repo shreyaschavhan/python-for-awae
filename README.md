@@ -382,5 +382,38 @@ print(ans)
 
 ---
 
+#### • argparse module
+- `argparse`: The argparse module makes it easy to write user-friendly command-line interfaces.
+
+> - Creating a parser:
+> 
+> The first step in using the `argparse` is creating an `ArgumentParser` object:
+> ```
+> parser = argparse.ArgumentParser(description="Process some intergers.")
+> ```
+> 
+> - Adding Arguments
+> 
+> Arguments are added using `add_argument()` and this information is stored and used when `parse_args()` is called.
+> ```
+> parser.add_argument('integers', metavar='N', type=int, nargs='+', 
+> 			help='an integer for the accumulator')
+> parser.add_argument('--sum', dest='accumulate', action='store_const', 
+> 			const=sum, default=max, help='sum the integers (default: find the max)')
+> ```
+> - Parsing arguments
+> 
+> `ArgumentParser` parses arguments through the `parse_args()` method.
+> ```
+> parser.parse_args(['--sum', '7', '-1', '42'])
+> ```
+> In a script, `parse_args()` will typically be called with no arguments, and the `ArgumentParser` will automatically determine the command-line arguments arguments from `sys.argv`.
+> 
+> 
+- More: https://docs.python.org/3/library/argparse.html
+
+---
+
+
 - `sys` : The built-in sys module provides access to objects used or maintained by the Python interpreter. This includes flags, version, max sizes of integers, available modules, path hooks, location of standard error/in/out, and command line arguments called by the interpreter.
 - `os` : This module allows the program to independently interact with the OS environment, file-system, user database, and permissions.
