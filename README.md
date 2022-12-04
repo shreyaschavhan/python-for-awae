@@ -1,19 +1,25 @@
-```
-I'm preparing for OSCP, so the repo name makes sense! ;) plus, it's my personal notes. 
-It's good if you find it helpful, if not I don't care. Thanks!
-```
-
-## ⁍ 𝐏𝐲𝐭𝐡𝐨𝐧 𝐅𝐨𝐫 𝐄𝐭𝐡𝐢𝐜𝐚𝐥 𝐇𝐚𝐜𝐤𝐞𝐫𝐬 : 𝐅𝐫𝐨𝐦 𝐛𝐞𝐠𝐢𝐧𝐧𝐞𝐫𝐬 𝐭𝐨 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 
+## ⁍ 𝐏𝐲𝐭𝐡𝐨𝐧 𝐅𝐨𝐫 𝐄𝐭𝐡𝐢𝐜𝐚𝐥 𝐇𝐚𝐜𝐤𝐞𝐫𝐬 : 𝐅𝐫𝐨𝐦 𝐛𝐞𝐠𝐢𝐧𝐧𝐞𝐫𝐬 𝐭𝐨 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝
 
 - `29th March 2022` - Started
 - `12th April 2022` - Expected
+
+---
+
+```
+Update:
+```
+```
+I made plans to study python for OSCP but never did it till the end. Gonna restart again!
+Dt. 4th Dec 2022
+```
+
 - Expected Footnotes:
-  - `Learn Python 3 The Hard Way`
-  - `Learn More Python 3 The Hard Way`
-  - `Violent Python`
-  - `Black Hat Python`
-  - [The Complete Python Hacking Course: Beginner To Advance! (2021)](https://youtu.be/0NQ2aMxBYNE)
-  - [The Complete Python Hacking Course Playlist](https://youtube.com/playlist?list=PL9bcYdRTwTIme7BckMbAd55KdwEzeSe9m)
+>  - `Learn Python 3 The Hard Way`
+>  - `Learn More Python 3 The Hard Way`
+>  - `Violent Python`
+>  - `Black Hat Python`
+>  - [The Complete Python Hacking Course: Beginner To Advance! (2021)](https://youtu.be/0NQ2aMxBYNE)
+>  - [The Complete Python Hacking Course Playlist](https://youtube.com/playlist?list=PL9bcYdRTwTIme7BckMbAd55KdwEzeSe9m)
 
 
 ## ‣ 𝐓𝐚𝐛𝐥𝐞 𝐨𝐟 𝐂𝐨𝐧𝐭𝐞𝐧𝐭𝐬
@@ -38,7 +44,7 @@ It's good if you find it helpful, if not I don't care. Thanks!
 	- Class/Object in python
 - [Violent Python](#𝐕𝐢𝐨𝐥𝐞𝐧𝐭-𝐏𝐲𝐭𝐡𝐨𝐧)
 	- [Installing a library](#-Installing-a-Library)
-	- [Banner Grabbing Script](#-Banner-Grabbing-Script) 
+	- [Banner Grabbing Script](#-Banner-Grabbing-Script)
 
 - [Modules](#𝐌𝐨𝐝𝐮𝐥𝐞𝐬)
 	- [socket](#-socket-module)
@@ -52,7 +58,7 @@ print("Hello there!")
 print("Repo Name: Python for OSCP")
 ```
 
-- Adding Comments : 
+- Adding Comments :
   - `using # (called as hash or pound or octothorpe (lol, funny name!))`
 
 ```
@@ -61,13 +67,13 @@ print("Repo Name: Python for OSCP")
 """
 This
 is a
-multiline 
+multiline
 Comment
 """
 ```
 
 - Numbers and Maths
-  
+
 ```
 +: plus
 -: minus
@@ -223,7 +229,7 @@ if test expression:
     Body of if
 elif test expression:
     Body of elif
-else: 
+else:
     Body of else
 ```
 
@@ -276,7 +282,7 @@ Escape | Description
 
 - Operators
 
-Operator | Description 
+Operator | Description
 ---|---
 `+` | Addition
 `-` | Subtraction
@@ -378,7 +384,7 @@ print(ans)
 > - `socket.gethostbyname(hostname)` - This function takes a hostname such as www.syngress.com and returns an IPv4 address format such as 69.163.177.2
 > - `socket.gethostbyaddr(ip address)` - This funciton returns a triple (hostname, aliaslist, ipaddrlist) i.e. a hostname, alternative list of host names, and a list of IPv4/v6 addresses for the same interface on the host.
 > - `socket.socket([family[, type[, proto]]])` - This function creates an instance of a new socket given the family. Options for the socket family are AF_INET< AF_INET6, or AF_UNIX. Additionally, the socket can be specified as SOCK_STREAM for a TCP socket or SOCK_DGRAM for a UDF socket. Finally, the protocol number is usually zero and is omitted in mmost cases.
-> - `socket.create_connection(address[, timeout[, source_address]])` - This function takes a 2-tuple (host, port) and returns an instandce of a network socket. Additionally, it has the opiton of taking a timeout and source address. 
+> - `socket.create_connection(address[, timeout[, source_address]])` - This function takes a 2-tuple (host, port) and returns an instandce of a network socket. Additionally, it has the opiton of taking a timeout and source address.
 
 ---
 
@@ -386,30 +392,30 @@ print(ans)
 - `argparse`: The argparse module makes it easy to write user-friendly command-line interfaces.
 
 > - Creating a parser:
-> 
+>
 > The first step in using the `argparse` is creating an `ArgumentParser` object:
 > ```
 > parser = argparse.ArgumentParser(description="Process some intergers.")
 > ```
-> 
+>
 > - Adding Arguments
-> 
+>
 > Arguments are added using `add_argument()` and this information is stored and used when `parse_args()` is called.
 > ```
-> parser.add_argument('integers', metavar='N', type=int, nargs='+', 
+> parser.add_argument('integers', metavar='N', type=int, nargs='+',
 > 			help='an integer for the accumulator')
-> parser.add_argument('--sum', dest='accumulate', action='store_const', 
+> parser.add_argument('--sum', dest='accumulate', action='store_const',
 > 			const=sum, default=max, help='sum the integers (default: find the max)')
 > ```
 > - Parsing arguments
-> 
+>
 > `ArgumentParser` parses arguments through the `parse_args()` method.
 > ```
 > parser.parse_args(['--sum', '7', '-1', '42'])
 > ```
 > In a script, `parse_args()` will typically be called with no arguments, and the `ArgumentParser` will automatically determine the command-line arguments arguments from `sys.argv`.
-> 
-> 
+>
+>
 - More: https://docs.python.org/3/library/argparse.html
 - Argparse Tutorial: https://docs.python.org/3/howto/argparse.html#id1
 
