@@ -217,3 +217,10 @@ print(content)
 - `lxml` and `BeautifulSoup` packages
 
 > - The `lxml` package provides a slightly faster parser, while the `BeautifulSoup` package has logic to automatically detect the target HTML page's encoding.
+> - Installation
+> ```
+> pip install lxml
+> pip install BeautifulSoup
+> ```
+
+> - 
