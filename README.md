@@ -43,8 +43,7 @@ that your particular attack scenario calls for.
 > 	- `urllib` for python 3.x
 > 	- requests library
 > 	- lxml and BeautifulSoup packages
-> -
-- Burp Suite Extensions using Python
+> - Multi-threading
 ```
 
 ## Python Libraries for Web
@@ -53,7 +52,7 @@ that your particular attack scenario calls for.
 
 > - It's part of the python standard library.
 > - Code to make a Simple GET request to a website:
-```
+```python
 import urllib2
 url = 'https://www.google.com/'
 response = urllib2.urlopen(url) # GET
@@ -66,7 +65,7 @@ response.close()
 - `urllib` for python 3.x
 > - Part of the python standard library
 > - Code to make a Simple GET request to a website:
-```
+```python
 import urllib.parse
 import urllib.request
 
@@ -78,7 +77,7 @@ print(content)
 
 
 > - make a simple POST request
-```
+```python
 info = {'user':'blackhat', 'passwd':'1337'}
 data = urllib.parse.urlencode(info).encode()    # data is now of type bytes
 req = urllib.request.Request(url, data)
@@ -93,19 +92,19 @@ print(content)
 - `requests` library
 > - Not part of the standard library
 > - Hence installation is required:
-> ```
+> ```python
 > pip install requests
 > ```
 
 
 > - Importing
-> ```
+> ```python
 > import requests
 > ```
 
 
 > - Methods
-> ```
+> ```python
 > r = requests.get(url)
 > r = requests.post(url, data={'key':'value'})
 > r = requests.put(url, data={'key':'value'})
@@ -116,20 +115,20 @@ print(content)
 
 
 > - Print Request URL
-> ```
+> ```python
 > print(r.url)
 > ```
 
 
 > - Passing params in URLs via GET
-> ```
+> ```python
 > payload = {'key1': 'value1', 'key2': 'value2'}
 > r = requests.get('https://httpbin.org/get', params=payload)
 > ```
 
 
 > - Passing a list of items
-> ```
+> ```python
 > payload = {'key1': 'value1', 'key2': ['value2', 'value3']}
 >
 > r = requests.get('https://httpbin.org/get', params=payload)
@@ -138,7 +137,7 @@ print(content)
 
 
 > - Get Response Content in binary form:
-> ```
+> ```python
 > r.content
 > ```
 > ```
@@ -148,7 +147,7 @@ print(content)
 
 
 > - Get Response Content in JSON Format:
-> ```
+> ```python
 > r.json()
 > ```
 > ```
@@ -157,7 +156,7 @@ print(content)
 
 
 > - Get raw response content
-> ```
+> ```python
 > r.raw.read(10)
 > ```
 > ```
@@ -168,7 +167,7 @@ print(content)
 
 
 > - Add custom header
-> ```
+> ```python
 > url = 'https://api.github.com/some/endpoint'
 > headers = {'user-agent': 'my-app/0.0.1'}
 >
@@ -177,7 +176,7 @@ print(content)
 
 
 > - POST a multipart-encoded file
-> ```
+> ```python
 > url = 'https://httpbin.org/post'
 > files = {'file': open('report.xls', 'rb')}
 >
@@ -187,25 +186,25 @@ print(content)
 
 
 > - Get Status Code
-> ```
+> ```python
 > r.status_code
 > ```
 
 
 > - Get Response Header
-> ```
+> ```python
 > r.headers
 > ```
 
 
 > - Get Cookies
-> ```
+> ```python
 > r.cookies
 > ```
 
 
 > - Sending our own cookies
-> ```
+> ```python
 > cookies = dict(cookies_are='working')
 >
 > r = requests.get(url, cookies=cookies)
@@ -218,9 +217,123 @@ print(content)
 
 > - The `lxml` package provides a slightly faster parser, while the `BeautifulSoup` package has logic to automatically detect the target HTML page's encoding.
 > - Installation
-> ```
+> ```python
 > pip install lxml
 > pip install BeautifulSoup
 > ```
 
-> - 
+> - Suppose we are having the HTML content from a request stored in a variable named `content`. Using `lxml`, we could retrive the content and parse the links as follows:
+> ```python
+> from io import BytesIO
+> from lxml import etree
+>
+> import requests
+>
+> url = 'https://www.example.com'
+> r = requests.get(url)
+> content = r.content 	# content is of type 'bytes'
+>
+> parser = etree.HTMLParser()
+> content = etree.parse(BytesIO(content), parser=parser) 		# Parse into > tree
+> for link in content.findall('//a'):			# find all "a" anchor elements
+> 	print(f"{link.get('href')} -> {link.text}")
+> ```
+> ```
+> Note: I think this only works for python 3.6 or below
+> ```
+
+> - Same thing Using `BeautifulSoup`
+> ```python
+> from bs4 import BeautifulSoup as bs
+> import requests
+> url = "https://www.google.com"
+> r = requests.get(url)
+> tree = bs(r.text, 'html.parser') 	# Parse into tree
+> for link in tree.find_all('a'):		# find all "a" anchor elements
+> 	print(f"{link.get('href')} -> {link.text}")
+> ```
+
+---
+
+- Python Multi-threading:
+
+> - We will be using Python `Queue` objects which is thread-safe and we won't have race condition.
+> - Let's understand this by creating a file brute-forcing tool.
+>
+```python
+import queue
+import threading
+import urllib.error
+import urllib.parse
+import urllib.request
+
+threads = 50
+target_url = "http://testphp.vulnweb.com"
+wordlist_file = "all.txt"  # from SVNDigger
+resume = None
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:19.0) " \
+             "Gecko/20100101 " \
+             "Firefox/19.0"
+
+
+def build_wordlist(wordlst_file):
+    # read in the word list
+    fd = open(wordlst_file, "r")
+    raw_words = [line.rstrip('\n') for line in fd]
+    fd.close()
+
+    found_resume = False
+    words = queue.Queue()
+
+    for word in raw_words:
+        if resume:
+            if found_resume:
+                words.put(word)
+            else:
+                if word == resume:
+                    found_resume = True
+                    print("Resuming wordlist from: %s" % resume)
+        else:
+            words.put(word)
+    return words
+
+
+def dir_bruter(extensions=None):
+    while not word_queue.empty():
+        attempt = word_queue.get()
+        attempt_list = []
+
+        # check if there is a file extension if not
+        # it's a directory path we're bruting
+        if "." not in attempt:
+            attempt_list.append("/%s/" % attempt)
+        else:
+            attempt_list.append("/%s" % attempt)
+
+        # if we want to bruteforce extensions
+        if extensions:
+            for extension in extensions:
+                attempt_list.append("/%s%s" % (attempt, extension))
+
+        # iterate over our list of attempts        
+        for brute in attempt_list:
+            url = "%s%s" % (target_url, urllib.parse.quote(brute))
+            try:
+                headers = {"User-Agent": user_agent}
+                r = urllib.request.Request(url, headers=headers)
+                response = urllib.request.urlopen(r)
+                if len(response.read()):
+                    print("[%d] => %s" % (response.code, url))
+            except urllib.error.HTTPError as e:
+                if e.code != 404:
+                    print("!!! %d => %s" % (e.code, url))
+                pass
+
+
+word_queue = build_wordlist(wordlist_file)
+file_extensions = [".php", ".bak", ".orig", ".inc"]
+
+for i in range(threads):
+    t = threading.Thread(target=dir_bruter, args=(file_extensions,))
+    t.start()
+```
