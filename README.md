@@ -46,12 +46,17 @@ that your particular attack scenario calls for.
 > 	- requests library
 > 	- lxml and BeautifulSoup packages
 > - Multi-threading
+- Quick Notes:
+> - OS Module
+
 ```
 
 ### Learn Python
 
 > - [Python Programming Beginners Tutorial](https://youtu.be/YYXdXT2l-Gg)
-> - 
+> - [Python OS Module](https://youtu.be/tJxcKyFMTGo)
+> - [Python Read and Write to files](https://youtu.be/Uh2ebFW8OYM)
+> -
 
 
 ## Python Libraries for Web
@@ -345,3 +350,99 @@ for i in range(threads):
     t = threading.Thread(target=dir_bruter, args=(file_extensions,))
     t.start()
 ```
+
+## Quick Notes:
+
+- OS Module
+> ```
+> + os.getcwd()                      => get curret working directory
+> + os.chdir(<path>)                 => change directory
+> + os.listdir()	                   => list directory
+> + os.mkdir(<dirname>)              => create a directory
+> + os.makedirs(<dirname>)           => make directories recursively
+> + os.rmdir(<dirname>)	             => remove directory
+> + os.removedirs(<dirname>)         => remove directory recursively
+> + os.rename(<from>, <to>)          => rename file
+> + os.stat(<filename>)              => print all info of a file
+> + os.walk(<path>)	                 => traverse directory recursively
+> + os.environ		                   => get environment variables
+> + os.path.join(<path>, <file>)     => join path without worrying about /
+> + os.path.basename(<filename>)     => get basename
+> + os.path.dirname(<filename>)      => get dirname
+> + os.path.exists(<path-to-file>)   => check if the path exists or not
+> + os.path.splitext(<path-to-file>) => split path and file extension
+> + dir(os)			                     => check what methods exists
+>
+> ```
+
+---
+
+- Reading and Writing to a file
+> - Open file in read mode:
+> ```python
+> with open('test.txt', 'r') as f:
+> ```
+
+> - Read file
+> ```python
+> with open('test.txt', 'r') as f:
+>    f_contents = f.read()
+> 	 print(f_contents)
+> ```
+
+> - Get all lines into a list
+> ```python
+> with open('test.txt', 'r') as f:
+>    f_contents = f.readlines()
+> 	 print(f_contents)
+> ```
+
+> - Read 1 line at a time
+> ```python
+> with open('test.txt', 'r') as f:
+>    f_contents = f.readline()
+> 	 print(f_contents)
+> ```
+> - Note: Everytime we use readline() function, it reads the next line of the file
+> - Example:
+> ```python
+> with open('test.txt', 'r') as f:
+>    f_contents = f.readline()
+> 	 print(f_contents, end='')
+>
+>    f_contents = f.readline()
+> 	 print(f_contents)
+> ```
+
+> - Another way of reading file (I guess most efficient)
+> ```python
+> with open('test.txt', 'r') as f:
+> 	for line in f:
+> 		print(line, end='')
+> ```
+
+> - Go back to start of the file
+> ```python
+> f.seek(0)
+> ```
+
+> - Writing to a file
+> ```python
+> with open('test2.txt', 'w') as f:
+> 	f.write('Test')
+> ```
+> - Note: `w` will overwrite the file, so use `a` if you wanna append
+
+> - Append to a file
+> ```python
+> with open('test2.txt', 'a') as f:
+> 	f.write('Test')
+> ```
+
+> - Read and write to a file at the same time
+> ```python
+> with open('test.txt', 'r') as rf:
+> 	with open('test_copy.txt', 'w') as wf:
+> 		for line in rf:
+> 			wf.write(line)
+> ```
