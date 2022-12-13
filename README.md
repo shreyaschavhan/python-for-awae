@@ -13,6 +13,7 @@ Will Try completing this + Gonna rename the repository!
 > 	- [Black Hat Python, 2nd Edition](https://g.co/kgs/HUzxMJ)
 > 	- Python Official Documentation
 > 	- Random Google Searches
+> 	- YouTube videos
 
 
 <div align=center>
@@ -37,6 +38,7 @@ that your particular attack scenario calls for.
 ### Table of Content
 
 ```
+- Learn Python
 - Web Hacking
 > - Python Libraries for Web
 > 	- `urllib2` for python 2.x
@@ -45,6 +47,12 @@ that your particular attack scenario calls for.
 > 	- lxml and BeautifulSoup packages
 > - Multi-threading
 ```
+
+### Learn Python
+
+> - [Python Programming Beginners Tutorial](https://youtu.be/YYXdXT2l-Gg)
+> - 
+
 
 ## Python Libraries for Web
 
