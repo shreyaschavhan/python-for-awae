@@ -54,9 +54,20 @@ that your particular attack scenario calls for.
 ### Learn Python
 
 > - [Python Programming Beginners Tutorial](https://youtu.be/YYXdXT2l-Gg)
+> - [World's Best Python (anything and everything related to python) Tutorials (I think)](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU)
 > - [Python OS Module](https://youtu.be/tJxcKyFMTGo)
 > - [Python Read and Write to files](https://youtu.be/Uh2ebFW8OYM)
 > - [Python Requests Module](https://youtu.be/tb8gHvYlCFs)
+> - [Python re Module](https://youtu.be/K8L6KVGG-7o)
+> - [Python BeautifulSoup Module](https://youtu.be/ng2o98k983k)
+> - [Python JSON Module](https://youtu.be/9N6a-VLBa2I)
+> - [Python Itertools Module](https://youtu.be/Qu3dThVy6KQ)
+> - [Send Emails using python](https://youtu.be/JRCJ6RtE3xU)
+> - [Python Requests-HTML Module](https://youtu.be/a6fIbtFB46g)
+> - [Python Subprocess Module](https://youtu.be/2Fp1N6dof0Y)
+> - [Python Threading Module](https://youtu.be/IEEhzQoKtQU)
+> - [Python Multiprocessing Module](https://youtu.be/fKl2JW_qrso)
+> - [Python Zip Files Tutorial](https://youtu.be/z0gguhEmWiY)
 
 
 ## Python Libraries for Web
