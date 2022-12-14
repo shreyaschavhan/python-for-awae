@@ -56,7 +56,7 @@ that your particular attack scenario calls for.
 > - [Python Programming Beginners Tutorial](https://youtu.be/YYXdXT2l-Gg)
 > - [Python OS Module](https://youtu.be/tJxcKyFMTGo)
 > - [Python Read and Write to files](https://youtu.be/Uh2ebFW8OYM)
-> -
+> - [Python Requests Module](https://youtu.be/tb8gHvYlCFs)
 
 
 ## Python Libraries for Web
