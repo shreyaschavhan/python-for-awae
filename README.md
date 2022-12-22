@@ -48,6 +48,9 @@ that your particular attack scenario calls for.
 > - Multi-threading
 - Quick Notes:
 > - OS Module
+> - Reading and Writing to a file
+> - Creating and Extracting Zip files
+
 
 ```
 
@@ -567,4 +570,70 @@ for i in range(threads):
 > 	with open('test_copy.txt', 'w') as wf:
 > 		for line in rf:
 > 			wf.write(line)
+> ```
+
+---
+
+- Creating and Extracting Zip files
+
+> - Creating a zip file with files already present in given directory
+> ```python
+> import zipfile
+>
+> with zipfile.ZipFile('files.zip', 'w') as my_zip:
+> 	my_zip.write('test.txt')
+> ```
+
+> - Creating a compressed zip file with files already present in given directory
+> ```python
+> import zipfile
+>
+> with zipfile.ZipFile('files.zip', 'w', compression=zipfile.ZIP_DEFLATED) as my_zip:
+> 	my_zip.write('test.txt')
+> ```
+
+> - list contents of a zip file
+> ```python
+> import zipfile
+>
+> with zipfile.ZipFile('files.zip', 'r') as my_zip:
+> 	print(my_zip.namelist())
+> ```
+
+> - Extract all files from a zipped file
+> ```python
+> import zipfile
+>
+> with zipfile.ZipFile('files.zip', 'r') as my_zip:
+> 	my_zip.extractall('files')
+> ```
+
+> - Extract a single file from a zipped file
+> ```python
+> import zipfile
+>
+> with zipfile.ZipFile('files.zip', 'r') as my_zip:
+> 	my_zip.extract('test.txt')
+> ```
+
+> - Another way of creating zip
+> ```python
+> import shutil
+>
+> shutil.make_archive('zip_name', 'extension', 'to_zip')
+> ```
+> - Extension list
+> ```
+> zip: zip file
+> tar: uncompressed tar file
+> gztar: gzip'ed tar file
+> bztar: bzip2'ed tar file
+> xztar: xz'ed tar file
+> ```
+
+> - Another way of extracting zip
+> ```python
+> import shutil
+>
+> shutil.unpack_archive('zip_name.extension', 'to_unzip')
 > ```
